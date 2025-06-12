@@ -1,5 +1,11 @@
+import HeroCard from "../components/HeroCard/HeroCard";
+
 const HeroPage = () => {
-  return <>HeroPage</>;
+  return (
+    <>
+      <HeroCard />
+    </>
+  );
 };
 
 export default HeroPage;

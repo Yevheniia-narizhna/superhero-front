@@ -9,9 +9,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/hero" element={<HeroPage />} />
-      <Route path="/edit" element={<EditHeroPage />} />
       <Route path="/add" element={<AddHeroPage />} />
+      <Route path="/hero/:id" element={<HeroPage />} />
+      <Route path="/hero/:id/edit" element={<EditHeroPage />} />
     </Routes>
   );
 }

@@ -1,5 +1,7 @@
+import HeroList from "../components/HeroList/HeroList";
+
 const HomePage = () => {
-  return <>Home</>;
+  return <HeroList />;
 };
 
 export default HomePage;
