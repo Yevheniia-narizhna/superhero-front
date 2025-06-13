@@ -1,16 +1,23 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { getHeroById } from "../../redux/hero/operations";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { deleteHero, getHeroById } from "../../redux/hero/operations";
 
 const HeroCard = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { currentHero, loading } = useSelector((state) => state.hero);
 
   useEffect(() => {
     dispatch(getHeroById(id));
   }, [dispatch, id]);
+
+  const handleDelete = () => {
+    if (window.confirm("Delete this hore?")) {
+      dispatch(deleteHero(id)).then(() => navigate("/"));
+    }
+  };
 
   if (loading || !currentHero) return <p>Loading...</p>;
 
@@ -25,6 +32,9 @@ const HeroCard = () => {
 
   return (
     <div>
+      <Link to="/">
+        <button>Back</button>
+      </Link>
       <h2>{nickname}</h2>
       <p>
         <strong>Real Name:</strong> {real_name}
@@ -41,7 +51,17 @@ const HeroCard = () => {
       {images?.map((img, i) => (
         <img key={i} src={img} alt={`${nickname} ${i}`} width={200} />
       ))}
-      <Link to="edit">Edit this hero</Link>
+      <div style={{ marginTop: "1rem" }}>
+        <Link to="edit">
+          <button>Edit this hero</button>
+        </Link>
+        <button
+          onClick={handleDelete}
+          style={{ marginLeft: "1rem", color: "red" }}
+        >
+          Delete hero
+        </button>
+      </div>
     </div>
   );
 };

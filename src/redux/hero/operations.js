@@ -42,6 +42,6 @@ export const updateHero = createAsyncThunk(
 );
 
 export const deleteHero = createAsyncThunk("hero/delete", async (id) => {
-  await heroApi.delete(`/heroes/${id}`);
+  await heroApi.delete(`/hero/${id}`);
   return id;
 });
