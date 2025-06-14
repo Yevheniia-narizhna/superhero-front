@@ -6,6 +6,7 @@ import {
   getHeroById,
   updateHero,
 } from "../../redux/hero/operations";
+import s from "./HeroForm.module.css";
 
 const HeroForm = ({ mode = "create" }) => {
   const { id } = useParams();
@@ -94,7 +95,7 @@ const HeroForm = ({ mode = "create" }) => {
   if (mode === "edit" && (loading || !currentHero)) return <p>Loading...</p>;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <input
         name="nickname"
         value={form.nickname}
@@ -127,17 +128,19 @@ const HeroForm = ({ mode = "create" }) => {
       />
 
       {mode === "edit" && (
-        <div>
+        <>
           <p>Existing Images:</p>
-          {form.existingImages.map((img, idx) => (
-            <div key={idx}>
-              <img src={img} alt="hero" width={100} />
-              <button type="button" onClick={() => handleRemoveImage(img)}>
-                Видалити
-              </button>
-            </div>
-          ))}
-        </div>
+          <div className={s.images}>
+            {form.existingImages.map((img, idx) => (
+              <div className={s.container} key={idx}>
+                <img src={img} alt="hero" width={100} />
+                <button type="button" onClick={() => handleRemoveImage(img)}>
+                  Delete
+                </button>
+              </div>
+            ))}
+          </div>
+        </>
       )}
 
       <input
@@ -146,9 +149,7 @@ const HeroForm = ({ mode = "create" }) => {
         accept="image/*"
         onChange={handleFileChange}
       />
-      <button type="submit">
-        {mode === "edit" ? "Зберегти зміни" : "Додати героя"}
-      </button>
+      <button type="submit">{mode === "edit" ? "Save" : "Add Hero"}</button>
     </form>
   );
 };

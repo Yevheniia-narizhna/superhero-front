@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllHeroes } from "../../redux/hero/operations";
 import { Link, useSearchParams } from "react-router-dom";
+import s from "./HeroList.module.css";
 
 const HeroList = () => {
   const dispatch = useDispatch();
@@ -24,9 +25,9 @@ const HeroList = () => {
 
   return (
     <div>
-      <ul>
+      <ul className={s.list}>
         {heroes.map((hero) => (
-          <li key={hero._id}>
+          <li className={s.card} key={hero._id}>
             <img
               src={hero.images?.[0]}
               alt={hero.nickname}
@@ -35,7 +36,7 @@ const HeroList = () => {
             />
             <p>{hero.nickname}</p>
             <Link to={`/hero/${hero._id}`}>
-              <button>Show more</button>
+              <button className={s.btn}>Show more</button>
             </Link>
           </li>
         ))}

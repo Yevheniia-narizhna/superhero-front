@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { deleteHero, getHeroById } from "../../redux/hero/operations";
-
+import s from "./HeroCard.module.css";
 const HeroCard = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -49,7 +49,13 @@ const HeroCard = () => {
         <strong>Catch phrase:</strong> {catch_phrase}
       </p>
       {images?.map((img, i) => (
-        <img key={i} src={img} alt={`${nickname} ${i}`} width={200} />
+        <img
+          className={s.img}
+          key={i}
+          src={img}
+          alt={`${nickname} ${i}`}
+          width={200}
+        />
       ))}
       <div style={{ marginTop: "1rem" }}>
         <Link to="edit">
