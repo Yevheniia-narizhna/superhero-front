@@ -1,46 +1,54 @@
-Superhero Database CRUD Application
-A full-stack web application that allows users to manage a database of superheroes. It supports all CRUD operations (Create, Read, Update, Delete) with images and paginated listing.
+# 🦸 Superhero CRUD App
 
-# Features
+A full-stack web application for managing a database of superheroes.  
+Users can create, edit, delete and view superhero profiles with images.
 
-📜 Create, edit, and delete superheroes.
+## 🚀 Live Demo
 
-🖼 Add and remove images during creation/editing.
+- **Frontend (React, Vercel)**: [https://superhero-front.vercel.app/]
+- **Backend (Node.js, Render)**: [https://superhero-back-zbf0.onrender.com]
 
-📄 Paginated list of superheroes (5 per page) with nickname and one image.
+## 🧠 Features
 
-🔍 View full details of a superhero, including all images and attributes.
+- List superheroes with pagination (5 per page)
+- View full details of a superhero
+- Create/update/delete superhero profiles
+- Upload and manage images
+- Responsive UI
 
-# Tech Stack
+## 🛠️ Tech Stack
 
-## Frontend
+- Frontend: React, Redux Toolkit
+- Backend: Node.js, MongoDB
+- Deployment: Vercel (frontend), Render (backend)
 
-React
+## 📦 How to Run Locally
 
-Redux Toolkit
+### 1. Clone the Repository
 
-React Router
+```bash
+git clone https://github.com/Yevheniia-narizhna/superhero-front.git
+```
 
-FormData API
+# Run Backend Locally
 
-CSS Modules
+cd backend
+npm install
+npm run dev
 
-## Backend
+# Run Frontend Locally
 
-Node.js
+cd frontend
+npm install
+npm run dev
 
-Multer (for image upload)
+🧪 Testing
 
-MongoDB (via Mongoose)
-
-Testing
-Jest
-
-@reduxjs/toolkit mock store for thunk tests
-
-# Tests
-
-Unit tests written for async Redux operations using redux-mock-store and jest.
-
-Run with:
 npm test
+
+📌 Assumptions
+Only one image is shown in the superhero list view
+
+Images are stored and served from the backend via multipart/form-data
+
+Pagination defaults to 5 items per page
