@@ -13,7 +13,7 @@
 .card {
   border: 0.5px solid rgb(22, 22, 22);
   border-radius: 20px;
-  background-color: rgb(97, 94, 110);
+  background-color: rgb(103, 100, 117);
   padding: 10px;
   & img {
     width: 100px;
@@ -23,7 +23,7 @@
   }
 }
 .btn {
-  background-color: rgb(124, 124, 124);
+  background-color: rgb(107, 106, 106);
   padding: 4px;
   font-size: 10px;
 }
